@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh '''
                     oc start-build greeting-metrics \
-                    --follow --wait -n udsonc-metrics
+                    --follow --wait -n yforbp-metrics
                 '''
             }
         }
