@@ -31,9 +31,9 @@ pipeline {
         }
         stage('Deploy') {
             environment { QUAY = credentials('QUAY_USER') }
+            enviromment { TAG_TO_DEPLOY = "BUILD-$BUILD_NUMBER" }
             steps {
                 dir('shopping-cart-v2') {
-                    def TAG_TO_DEPLOY = "BUILD-$BUILD_NUMBER"
                     script {
                         print "trazas 1"
                     print "trazas.1:" + TAG_TO_DEPLOY
