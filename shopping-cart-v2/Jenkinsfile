@@ -33,9 +33,9 @@ pipeline {
             environment { QUAY = credentials('QUAY_USER') }
             steps {
                 dir('shopping-cart-v2') {
+                    def TAG_TO_DEPLOY = "BUILD-$BUILD_NUMBER"
                     script {
                         print "trazas 1"
-                        def TAG_TO_DEPLOY = "BUILD-$BUILD_NUMBER"
                     print "trazas.1:" + TAG_TO_DEPLOY
                         if (params.DEPLOY_TAG != '' && params.DEPLOY_TAG != null) {
                             print "trazas 1.1"
