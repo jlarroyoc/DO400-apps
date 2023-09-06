@@ -30,8 +30,8 @@ pipeline {
             }
         }
         stage('Deploy') {
-            environment { QUAY = credentials('QUAY_USER') }
-            enviromment { TAG_TO_DEPLOY = "BUILD-$BUILD_NUMBER" }
+            environment { QUAY = credentials('QUAY_USER') 
+                           TAG_TO_DEPLOY = "BUILD-$BUILD_NUMBER" }
             steps {
                 dir('shopping-cart-v2') {
                     script {
