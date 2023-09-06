@@ -35,10 +35,7 @@ pipeline {
             steps {
                 dir('shopping-cart-v2') {
                     script {
-                        print "trazas 1"
-                    print "trazas.1:" + TAG_TO_DEPLOY
                         if (params.DEPLOY_TAG != '' && params.DEPLOY_TAG != null) {
-                            print "trazas 1.1"
                             def status = sh(
                                 script: "./scripts/tag-exists-in-quay.sh $QUAY_USR/do400-recover ${params.DEPLOY_TAG}",
                                 returnStatus: true
@@ -50,8 +47,6 @@ pipeline {
                             TAG_TO_DEPLOY = params.DEPLOY_TAG
                         }
                     }
-                    print "trazas 2"
-                    print "trazas.2:" + TAG_TO_DEPLOY
                     sh """
                         ./scripts/deploy-image.sh \
                         -u $QUAY_USR \
